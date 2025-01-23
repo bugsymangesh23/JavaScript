@@ -9,7 +9,7 @@
 // ===================================User Deposit================================
 const prompt = require("prompt-sync")(); // take user input
 
-const deposit = () =>{
+const deposit = () => {
     while(true){
         const depositAmount = prompt("Enter the deposit amount: ");
     // Convert to interger
@@ -24,5 +24,17 @@ const deposit = () =>{
 };
 
 //=============Determine number of lines user wants to bet on============================
+const getNumberOfLines = () => {
+    while(True){
+        const lines = prompt("Enter number of line to bet on (1-3)");
+        const numberOfLines = parseFloat(depositAmount);
 
-deposit();
+        if (isNaN(numberDepositAmount) ||) numberDepositAmount <= 0) {
+            console("Invalid Amount! Please try again.");
+        }  else {
+            return numberDepositAmount;
+        }
+    }
+
+};
+const depositAmount = deposit();
