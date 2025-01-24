@@ -15,18 +15,18 @@ const ROWS = 3;
 
 // Object Mapper
 const SYMBOLS_COUNT = {
-    "A": 2;
-    "B": 4;
-    "C": 6;
-    "D": 8;
+    "A": 2,
+    "B": 4,
+    "C": 6,
+    "D": 8,
 }
 
 // Odds - value to be multiplied by the counts
 const SYMBOLS_VALUES = {
-    "A": 5;
-    "B": 4;
-    "C": 3;
-    "D": 2;
+    "A": 5,
+    "B": 4,
+    "C": 3,
+    "D": 2,
 }
 
 const deposit = () => {
@@ -72,6 +72,32 @@ const getBet = (balance, lines) => {
 
 };
 
+// slot spin emulator
+ const spin = () => {
+    const symbols = [];
+    for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
+        for(let i = 0; i < count; i++){
+            symbols.push(symbol);
+        }
+    }
+
+    const reels = [];
+    for(i = 0; i < COLUMNS; i++){
+        reels.push([]);
+        const reelSymbols = [...symbols];
+        for(j = 0; j < ROWS; j++) {
+            const randomIndex = Math.floor(Math.random() * reelSymbols.length);
+            const selectedSymbol = reelSymbols[randomIndex];
+            reels[i].push(selectedSymbol);
+            reelSymbols.splice(randomIndex, 1);
+        }
+    }
+
+    return reels;
+ };
+
+const reels = spin();
+console.log(reels);
 let balance = deposit();
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
