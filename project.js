@@ -9,6 +9,26 @@
 // ===================================User Deposit================================
 const prompt = require("prompt-sync")(); // take user input
 
+// Global variables
+const COLUMNS = 3;
+const ROWS = 3;
+
+// Object Mapper
+const SYMBOLS_COUNT = {
+    "A": 2;
+    "B": 4;
+    "C": 6;
+    "D": 8;
+}
+
+// Odds - value to be multiplied by the counts
+const SYMBOLS_VALUES = {
+    "A": 5;
+    "B": 4;
+    "C": 3;
+    "D": 2;
+}
+
 const deposit = () => {
     while (true) {
         const depositAmount = prompt("Enter the deposit amount: ");
@@ -43,7 +63,7 @@ const getBet = (balance, lines) => {
         const bet = prompt("Enter number of bet per line: ");
         const numberBet = parseFloat(bet);
 
-        if (isNaN(numberBet) || numberBet <= 0 || numberBet > (balance / lines)) {
+        if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
             console.log("Invalid bet try again!");
         } else {
             return numberBet;
