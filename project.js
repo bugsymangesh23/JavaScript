@@ -1,7 +1,3 @@
-// Deposit money into account
-// Determine number of lines to bet on
-// Make a bet amount
-// spin the machine
 // Check if user won
 // Give user the winnings
 // Play again?
@@ -72,7 +68,7 @@ const getBet = (balance, lines) => {
 
 };
 
-// slot spin emulator
+// slot spin simulator
  const spin = () => {
     const symbols = [];
     for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
@@ -94,7 +90,22 @@ const getBet = (balance, lines) => {
     }
 
     return reels;
- };
+};
+
+// Transposing the arrays
+
+const transpose = (reels) => {
+    const rows = [];
+
+    for(let i = 0; i < ROWS; i++){
+        rows.push([]);
+        for(let j = 0; j < COLUMNS; j++){
+            rows[i].push(reels[j][i]);
+        }
+    }
+
+    return rows;
+};
 
 const reels = spin();
 console.log(reels);
