@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+body{
+    background: rgb(66, 66g, 66);
+}
+
+:root{
+    --main-color:f8b281;
+    --secondary-color:1b1b1b;
+}
+
+@font-face {
+    font-family: "argonite";
+    src: url(./Assets/stone\argonite.woff);
+}
